@@ -1,0 +1,26 @@
+syntax="proto3";
+
+package person;
+
+option go_package="./person";
+
+message Employee {
+    string name = 1;
+    int32 age = 2;
+    float sallary = 3;
+}
+
+message Person {
+    string firstname = 1;
+    string lastname = 2;
+}
+
+message People{
+    repeated Person persons = 1;
+}
+
+service GreetEmployee {
+    rpc GetEmployeeSendPerson(Employee) returns (Person) {}
+    rpc GetEmployeeSendPeople(Employee) returns (People) {}
+}
+
